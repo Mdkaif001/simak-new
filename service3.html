@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="00XX00.png">
+    <title>Simak IT_Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Main Section */
+        main {
+            padding: 20px;
+            background-color: white;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .footer {
+            background-color: #2b2b2b;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .footer-column h3 {
+            border-bottom: 1px solid #b48b4e;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .footer-column a:hover {
+            color: #b48b4e;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .social-icons a {
+            display: inline-block;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+            filter: brightness(1.5);
+        }
+
+        /* Mobile Menu Styles */
+        #mobileMenu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #mobileMenu.translate-x-0 {
+            transform: translateX(0);
+            background-color: #f7f7f7;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #mobileMenu a {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #mobileMenu a:hover {
+            background-color: #ff7043;
+            color: white;
+        }
+
+        #mobileMenu .active {
+            background-color: #ff7043;
+            color: white;
+        }
+
+        #mobileMenu nav {
+            padding-top: 20px;
+        }
+
+        #mobileMenu .border {
+            padding: 10px;
+        }
+
+        #mobileMenu .border:hover {
+            background-color: #f0f0f0;
+        }
+
+        #closeMobileMenu svg {
+            color: #333;
+        }
+
+        #closeMobileMenu:hover svg {
+            color: #ff7043;
+        }
+
+        #mobileMenu {
+            background-color: white;
+            max-width: 16rem;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobileMenu .border {
+            border-color: #e0e0e0;
+        }
+
+        #mobileMenu button {
+            background-color: transparent;
+            border: none;
+        }
+
+        #mobileMenu a:hover {
+            color: #f97316;
+        }
+
+        #mobileMenu svg {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #mobileMenu .hidden {
+            display: none;
+        }
+
+        #mobileMenu .rotate-90 {
+            transform: rotate(90deg);
+        }
+        #mobileMenu {
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        #searchResults li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="relative">
+
+<!-- Updated Header -->
+<header class="flex items-center justify-between px-4 py-3 shadow-md bg-white relative z-50">
+    <!-- Left: Logo -->
+    <div class="flex-shrink-0">
+        <img src="Updated.jpg" style="width: 200px; height: 55px" alt="Simak IT Logo" />
+    </div>
+
+    <!-- Middle: Desktop Navigation -->
+    <nav class="hidden md:flex flex-1 justify-center space-x-6 items-center">
+        <a href="index.htm" class="hover:text-orange-500">Home</a>
+
+        <div class="relative group">
+            <button class="flex items-center hover:text-orange-500">
+                Services
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <div class="absolute left-0 top-full mt-2 w-[360px] bg-white border rounded-md shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="py-2">
+                    <a href="service1.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">GIS Mapping</div>
+                            <div class="text-sm text-gray-500">Spatial data capture, visualization, and analytics.</div>
+                        </div>
+                    </a>
+
+                    <a href="service2.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">DMS Solutions</div>
+                            <div class="text-sm text-gray-500">Secure document management and digital workflow.</div>
+                        </div>
+                    </a>
+
+                    <a href="service3.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Statistical, Economical Servey and Study. Third Party Evolution of Schemes</div>
+                            <div class="text-sm text-gray-500">Socio-economic surveys, third-party scheme evaluation.</div>
+                        </div>
+                    </a>
+
+                    <a href="service4.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">IT Enabled Services</div>
+                            <div class="text-sm text-gray-500">Custom IT support, automation & consulting services.</div>
+                        </div>
+                    </a>
+
+                    <a href="service5.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">E-Governance</div>
+                            <div class="text-sm text-gray-500">Technology-driven governance and citizen services.</div>
+                        </div>
+                    </a>
+
+                    <a href="service6.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Training</div>
+                            <div class="text-sm text-gray-500">Capacity building and professional skill development.</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative group">
+            <button class="flex items-center hover:text-orange-500">
+                Projects
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <div class="absolute left-0 top-full mt-2 w-[360px] bg-white border rounded-md shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="py-2">
+                    <a href="mapping.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Assets Mapping Of 2D Building to 3D Building</div>
+                            <div class="text-sm text-gray-500">Convert flat maps into interactive 3D models.</div>
+                        </div>
+                    </a>
+
+                    <a href="creation.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Creation Of BaseMap With The Help Of Content Mapping</div>
+                            <div class="text-sm text-gray-500">Foundational layers for GIS and smart planning.</div>
+                        </div>
+                    </a>
+
+                    <a href="asset.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Asset & Component Mapping on Telecom Tower in 2D Drawing</div>
+                            <div class="text-sm text-gray-500">Geo-tagging of physical and digital infrastructure.</div>
+                        </div>
+                    </a>
+
+                    <a href="scanning.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                        <div>
+                            <div class="font-semibold">Scanning & Digitization of Cadastral Map Belongs to LRD</div>
+                            <div class="text-sm text-gray-500">Scan, convert, and enhance physical maps.</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="AboutUs.html" class="hover:text-orange-500">About Us</a>
+        <a href="careers.html" class="hover:text-orange-500">Join the Team</a>
+        <a href="contact.html" class="hover:text-orange-500">Contact</a>
+    </nav>
+
+    <!-- Right: Search + Mobile Menu -->
+    <div class="flex items-center space-x-4">
+        <!-- Search Icon and Input -->
+        <div class="relative hidden md:block">
+            <button id="searchToggle" class="text-gray-600 hover:text-black focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z" />
+                </svg>
+            </button>
+
+            <div id="searchBox" class="absolute right-0 mt-2 w-64 hidden transition-all duration-300 transform bg-white border border-gray-300 rounded-md shadow-sm">
+                <input type="text" id="searchInput" class="w-full px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" placeholder="Search..." />
+                <ul id="searchResults" class="bg-white border-t-0 max-h-60 overflow-y-auto rounded-b-md shadow-md mt-1"></ul>
+            </div>
+        </div>
+
+        <!-- Mobile: Search & Menu Buttons -->
+        <div class="flex items-center space-x-3 md:hidden">
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Side Menu -->
+<div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
+    <div class="flex justify-between items-center p-4 border-b">
+        <div class="text-xl font-bold">Menu</div>
+        <button id="closeMobileMenu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    
+    <nav class="flex flex-col p-4 space-y-4">
+        <!-- Home Link -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <a href="index.htm" class="block hover:text-orange-500 font-semibold">Home</a>
+        </div>
+
+        <!-- Services Section -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <button class="w-full text-left flex justify-between items-center hover:text-orange-500 font-semibold" id="servicesToggle">
+                <span>Services</span>
+                <svg id="servicesIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            <div id="servicesDropdown" class="hidden mt-3 space-y-2">
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service1.html" class="block">GIS Mapping</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service2.html" class="block">DMS Solutions</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service3.html" class="block">Statistical, Economical Servey and Study. Third Party Evolution of Schemes</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service4.html" class="block">IT Services</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service5.html" class="block">E-Governance</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="service6.html" class="block">Training</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <button class="w-full text-left flex justify-between items-center hover:text-orange-500 font-semibold" id="projectsToggle">
+                <span>Projects</span>
+                <svg id="projectsIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            <div id="projectsDropdown" class="hidden mt-3 space-y-2">
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="mapping.html" class="block">Assets Mapping Of 2D Building to 3D Building</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="creation.html" class="block">Creation Of BaseMap With The Help Of Content Mapping</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="asset.html" class="block">Asset & Component Mapping on Telecom Tower in 2D Drawing</a>
+                </div>
+                <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                    <a href="scanning.html" class="block">Scanning & Digitization of Cadastral Map Belongs to LRD</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <a href="AboutUs.html" class="block hover:text-orange-500 font-semibold">About Us</a>
+        </div>
+
+        <!-- Join the Team -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <a href="careers.html" class="block hover:text-orange-500 font-semibold">Join the Team</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="border rounded-lg p-3 shadow-sm">
+            <a href="contact.html" class="block hover:text-orange-500 font-semibold">Contact</a>
+        </div>
+    </nav>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-30"></div>
+
+<!-- Script -->
+<script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn'); // Open button
+    const mobileMenu = document.getElementById('mobileMenu'); // Sidebar menu
+    const closeBtn = document.getElementById('closeMobileMenu'); // Close icon button
+    const overlay = document.getElementById('overlay'); // Page overlay
+
+    // Open menu
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        overlay.classList.remove('hidden');
+    });
+
+    // Close menu
+    const closeMenu = () => {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+    };
+
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // Optional: Close menu if clicked outside (not on menu or button)
+    document.addEventListener('click', function (event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnToggleBtn = mobileMenuBtn.contains(event.target);
+        if (!isClickInsideMenu && !isClickOnToggleBtn) {
+            closeMenu();
+        }
+    });
+
+    // Highlight active menu link
+    const links = document.querySelectorAll('#mobileMenu a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            closeMenu(); // Optionally close menu when a link is clicked
+        });
+    });
+
+    // Toggle services section
+    document.getElementById('servicesToggle').addEventListener('click', function() {
+        const dropdown = document.getElementById('servicesDropdown');
+        const icon = document.getElementById('servicesIcon');
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-90'); // Rotate icon when expanded
+    });
+
+    // Toggle projects section
+    document.getElementById('projectsToggle').addEventListener('click', function() {
+        const dropdown = document.getElementById('projectsDropdown');
+        const icon = document.getElementById('projectsIcon');
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-90'); // Rotate icon when expanded
+    });
+
+    // Search functionality
+    const searchToggle = document.getElementById('searchToggle');
+    const searchBox = document.getElementById('searchBox');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    const data = [
+        { title: 'Home', url: 'index.htm' },
+        { title: 'GIS Mapping', url: 'service1.html' },
+        { title: 'DMS Solutions', url: 'service2.html' },
+        { title: 'Statistical Study', url: 'service3.html' },
+        { title: 'IT Services', url: 'service4.html' },
+        { title: 'E-Governance', url: 'service5.html' },
+        { title: 'Training', url: 'service6.html' },
+        { title: '2D to 3D Mapping', url: 'mapping.html' },
+        { title: 'BaseMap Creation', url: 'creation.html' },
+        { title: 'Asset Mapping', url: 'asset.html' },
+        { title: 'Map Digitization', url: 'scanning.html' },
+        { title: 'About Us', url: 'AboutUs.html' },
+        { title: 'Careers', url: 'careers.html' },
+        { title: 'Contact', url: 'contact.html' },
+    ];
+
+    searchToggle.addEventListener('click', () => {
+        searchBox.classList.toggle('hidden');
+        searchInput.focus();
+    });
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        const filtered = data.filter(item => item.title.toLowerCase().includes(query));
+        searchResults.innerHTML = '';
+
+        if (query.length === 0) return;
+
+        if (filtered.length > 0) {
+            filtered.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${item.url}" class="block px-4 py-2 hover:bg-gray-100">${item.title}</a>`;
+                searchResults.appendChild(li);
+            });
+        } else {
+            searchResults.innerHTML = '<li class="px-4 py-2 text-gray-500">No results found</li>';
+        }
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!searchBox.contains(event.target) && !searchToggle.contains(event.target)) {
+            searchBox.classList.add('hidden');
+        }
+    });
+</script>
+
+    <main>
+        <section id="services">
+            <h2>Implementation of Evolving & Innovation Skills</h2>
+            <p><br>Evolving and Innovation Skills refer to the abilities that enable individuals and organizations to adapt to change and create new solutions or ideas. These skills are essential in today's fast-paced world where technology and industries constantly evolve. Here's a brief explanation of both:<br>
+
+                <br>1. Evolving Skills:
+                Adaptability: The ability to quickly adjust to new situations, environments, or challenges. Continuous Learning: Ongoing development of knowledge and expertise, keeping up with trends and acquiring new skills as industries evolve. Problem-Solving: The capacity to find innovative solutions to new and unforeseen problems by leveraging both past experiences and fresh insights. Resilience: The mental strength to face challenges or setbacks and continue pushing forward with renewed strategies or perspectives.</br>
+                
+                <br>2. Innovation Skills:
+                Creativity: The ability to think outside the box, generate new ideas, and approach problems from novel perspectives.
+                Critical Thinking: Analyzing and evaluating information to make decisions that lead to innovation.
+                Collaboration: Working with diverse teams to pool resources, knowledge, and skills to create something new or improved.
+                Risk-taking: Being willing to take calculated risks in the pursuit of innovative ideas or solutions, understanding that failure is often part of the learning process.</br></p>
+        </section>
+        <div   style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+        margin: 20px 0px;
+      ">
+    <iframe 
+        width="1200"
+          height="720"
+        src="https://www.youtube.com/embed/sgd8kbaxgfM"  
+        title="YouTube Video Player" 
+        frameborder="0"  
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+        </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="service1.html">GIS Mapping</a>
+          <a href="service2.html">DMS Solutions</a>
+          <a href="service3.html"
+            >Statistical, Economical Servey and Study. Third Party Evolution of Schemes</a
+          >
+          <a href="service4.html">IT Enabled Services</a>
+          <a href="service5.html">E-Governance</a>
+          <a href="service6.html">Training</a>
+        </div>
+        <div class="footer-column">
+          <h3>Projects</h3>
+          <a href="mapping.html">Assets Mapping Of 2D Building to 3D Building</a>
+          <a href="creation.html"
+            >Creation Of BaseMap With The Help Of Content Mapping</a
+          >
+          <a href="asset.html"
+            >Asset & Component Mapping on Telecom Tower in 2D Drawing</a
+          >
+          <a href="scanning.html"
+            >Scanning & Digitization of Cadastral Map Belongs to LRD</a
+          >
+        </div>
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <a href="AboutUs.html">Our Company</a>
+        </div>
+        <div class="footer-column">
+          <h3>Careers</h3>
+          <a href="careers.html">Join The Team</a><br />
+        </div>
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/simak-it-private-limited/" target="_blank">
+             <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                alt="LinkedIn"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Simak IT Technologies Pvt. Ltd. All Rights Reserved.
+      </div>
+    </footer>
+</body>
+</html>
+
+

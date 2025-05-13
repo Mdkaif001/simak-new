@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="00XX00.png">
+    <title>Simak IT_Careers</title>
+   
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+       /* Enhanced Talk to Us Section Styles */
+#searchResults li {
+            cursor: pointer;
+        }
+
+       .container {
+    background-color: #f8fafc;
+    padding: 4rem 1rem;
+}
+
+.container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #3b82f6;
+    border-radius: 2px;
+}
+
+.form-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-section:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+input, select, textarea {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    background-color: white;
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.5);
+}
+
+.file-upload-btn {
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.file-upload-btn:hover {
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+    transform: translateY(-1px);
+}
+
+button[type="submit"] {
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3), 
+                0 2px 4px -1px rgba(59, 130, 246, 0.2);
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 
+                0 4px 6px -2px rgba(59, 130, 246, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container h2 {
+        font-size: 2rem;
+    }
+    
+    .form-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Form field animations */
+input, select, textarea, .file-upload-btn, button[type="submit"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Checkbox styling */
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+    margin-right: 8px;
+}
+
+.checkbox-group label {
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+}
+
+/* Select dropdown arrow styling */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em;
+}
+       
+       /* Global styles */
+        
+    /* Talk to Us Block Styles */
+.talk-to-us {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.talk-to-us h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937; /* Tailwind's gray-900 */
+  margin-bottom: 1.5rem;
+}
+
+.talk-to-us p {
+  font-size: 1.125rem;
+  color: #4b5563; /* Tailwind's gray-600 */
+  margin-bottom: 2rem;
+}
+
+.talk-to-us a.button {
+  display: inline-block;
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.talk-to-us a.button:hover {
+  background-color: #1d4ed8; /* Tailwind's blue-700 */
+}
+
+    
+        .talk-heading {
+        font-size: 2.25rem; /* text-3xl */
+        font-weight: 700;
+        color: #1f2937; /* gray-800 */
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .talk-heading {
+            font-size: 1.5rem; /* text-xl on mobile */
+        }
+    }
+
+  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f3f4f6;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 40px 20px;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2b2b2b;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .form-section {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        button[type="submit"] {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            border: none;
+            margin-top: 1.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4338ca;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        label.required::after {
+            content: " *";
+            color: #e53e3e;
+        }
+
+        /* File upload styling */
+        .file-upload {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .file-upload-btn {
+            background: #f3f4f6;
+            color: #444;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .file-upload-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .file-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #2b2b2b;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .footer-column h3 {
+            border-bottom: 1px solid #b48b4e;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        
+        .footer-column a:hover {
+            color: #b48b4e;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+        }
+        
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .social-icons a:hover img {
+            transform: scale(1.2);
+            filter: brightness(1.5);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Header from Extra.html -->
+    <header class="flex items-center justify-between px-4 py-3 shadow-md bg-white relative z-50">
+        <!-- Left: Logo -->
+        <div class="flex-shrink-0">
+            <img src="Updated.jpg" style="width: 200px; height: 55px" alt="Simak IT Logo" />
+        </div>
+
+        <!-- Middle: Desktop Navigation -->
+        <nav class="hidden md:flex flex-1 justify-center space-x-6 items-center">
+            <a href="index.htm" class="hover:text-orange-500">Home</a>
+
+            <div class="relative group">
+                <button class="flex items-center hover:text-orange-500">
+                    Services
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div class="absolute left-0 top-full mt-2 w-[360px] bg-white border rounded-md shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="py-2">
+                        <a href="service1.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">GIS Mapping</div>
+                                <div class="text-sm text-gray-500">Spatial data capture, visualization, and analytics.</div>
+                            </div>
+                        </a>
+
+                        <a href="service2.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">DMS Solutions</div>
+                                <div class="text-sm text-gray-500">Secure document management and digital workflow.</div>
+                            </div>
+                        </a>
+
+                        <a href="service3.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Statistical, Economical Servey and Study. Third Party Evolution of Schemes</div>
+                                <div class="text-sm text-gray-500">Socio-economic surveys, third-party scheme evaluation.</div>
+                            </div>
+                        </a>
+
+                        <a href="service4.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">IT Enabled Services</div>
+                                <div class="text-sm text-gray-500">Custom IT support, automation & consulting services.</div>
+                            </div>
+                        </a>
+
+                        <a href="service5.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">E-Governance</div>
+                                <div class="text-sm text-gray-500">Technology-driven governance and citizen services.</div>
+                            </div>
+                        </a>
+
+                        <a href="service6.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Training</div>
+                                <div class="text-sm text-gray-500">Capacity building and professional skill development.</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center hover:text-orange-500">
+                    Projects
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div class="absolute left-0 top-full mt-2 w-[360px] bg-white border rounded-md shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="py-2">
+                        <a href="mapping.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Assets Mapping Of 2D Building to 3D Building</div>
+                                <div class="text-sm text-gray-500">Convert flat maps into interactive 3D models.</div>
+                            </div>
+                        </a>
+
+                        <a href="creation.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Creation Of BaseMap With The Help Of Content Mapping</div>
+                                <div class="text-sm text-gray-500">Foundational layers for GIS and smart planning.</div>
+                            </div>
+                        </a>
+
+                        <a href="asset.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Asset & Component Mapping on Telecom Tower in 2D Drawing</div>
+                                <div class="text-sm text-gray-500">Geo-tagging of physical and digital infrastructure.</div>
+                            </div>
+                        </a>
+
+                        <a href="scanning.html" class="flex items-start space-x-2 px-4 py-2 hover:bg-gray-100">
+                            <svg class="w-5 h-5 mt-1 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Scanning & Digitization of Cadastral Map Belongs to LRD</div>
+                                <div class="text-sm text-gray-500">Scan, convert, and enhance physical maps.</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="AboutUs.html" class="hover:text-orange-500">About Us</a>
+            <a href="careers.html" class="hover:text-orange-500">Join the Team</a>
+            <a href="contact.html" class="hover:text-orange-500">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Mobile Menu -->
+        <div class="flex items-center space-x-4">
+            <!-- Search Icon and Input -->
+            <div class="relative hidden md:block">
+                <button id="searchToggle" class="text-gray-600 hover:text-black focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z" />
+                    </svg>
+                </button>
+
+                <div id="searchBox" class="absolute right-0 mt-2 w-64 hidden transition-all duration-300 transform bg-white border border-gray-300 rounded-md shadow-sm">
+                    <input type="text" id="searchInput" class="w-full px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" placeholder="Search..." />
+                    <ul id="searchResults" class="bg-white border-t-0 max-h-60 overflow-y-auto rounded-b-md shadow-md mt-1"></ul>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center space-x-3 md:hidden">
+                <button id="mobileMenuBtn" class="flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Side Menu -->
+    <div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
+        <div class="flex justify-between items-center p-4 border-b">
+            <div class="text-xl font-bold">Menu</div>
+            <button id="closeMobileMenu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col p-4 space-y-4">
+            <div class="border rounded-lg p-3 shadow-sm">
+                <a href="index.htm" class="block hover:text-orange-500 font-semibold">Home</a>
+            </div>
+
+            <div class="border rounded-lg p-3 shadow-sm">
+                <button class="w-full text-left flex justify-between items-center hover:text-orange-500 font-semibold" id="servicesToggle">
+                    <span>Services</span>
+                    <svg id="servicesIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                <div id="servicesDropdown" class="hidden mt-3 space-y-2">
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service1.html" class="block">GIS Mapping</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service2.html" class="block">DMS Solutions</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service3.html" class="block">Statistical, Economical Servey and Study. Third Party Evolution of Schemes</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service4.html" class="block">IT Services</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service5.html" class="block">E-Governance</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="service6.html" class="block">Training</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-lg p-3 shadow-sm">
+                <button class="w-full text-left flex justify-between items-center hover:text-orange-500 font-semibold" id="projectsToggle">
+                    <span>Projects</span>
+                    <svg id="projectsIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                <div id="projectsDropdown" class="hidden mt-3 space-y-2">
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="mapping.html" class="block">Assets Mapping Of 2D Building to 3D Building</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="creation.html" class="block">Creation Of BaseMap With The Help Of Content Mapping</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="asset.html" class="block">Asset & Component Mapping on Telecom Tower in 2D Drawing</a>
+                    </div>
+                    <div class="border rounded-lg px-4 py-2 shadow-sm bg-gray-50">
+                        <a href="scanning.html" class="block">Scanning & Digitization of Cadastral Map Belongs to LRD</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-lg p-3 shadow-sm">
+                <a href="AboutUs.html" class="block hover:text-orange-500 font-semibold">About Us</a>
+            </div>
+
+            <div class="border rounded-lg p-3 shadow-sm">
+                <a href="careers.html" class="block hover:text-orange-500 font-semibold">Join the Team</a>
+            </div>
+
+            <div class="border rounded-lg p-3 shadow-sm">
+                <a href="contact.html" class="block hover:text-orange-500 font-semibold">Contact</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-30"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <h2>Talk to Us</h2>
+            <div class="form-section">
+                <!-- User Information Inputs -->
+                <input type="text" name="first_name" id="firstName" placeholder="First Name *" required>
+                <input type="text" name="last_name" id="lastName" placeholder="Last Name *" required>
+                <input type="email" name="email" id="email" placeholder="Email *" required>
+                <input type="tel" name="phone" id="phone" placeholder="Phone *" required>
+                <input type="text" name="country" id="country" placeholder="Country *" required>
+
+                <!-- Select Fields -->
+                <select name="experience" id="experience" required>
+                    <option value="">Experience</option>
+                    <option value="fresher">Fresher's</option>
+                    <option value="0-6months">0-6 Months</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <select name="education" id="education" required>
+                    <option value="">Select Education *</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="post-graduation">Post-Graduation</option>
+                    <option value="Phd">PhD</option>
+                </select>
+
+                <select name="industry" id="industry" required>
+                    <option value="">Select Industry *</option>
+                    <option value="IT">IT</option>
+                    <option value="finance">Geologist</option>
+                    <option value="healthcare">Other's</option>
+                </select>
+
+                <!-- File Upload -->
+                <label for="resume">Please upload your Resume/CV:</label>
+                <div class="file-upload">
+                    <label for="resume" class="file-upload-btn">Choose File</label>
+                    <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx" style="display: none;" required>
+                    <span class="file-name" id="fileName">No file chosen</span>
+                </div>
+
+                <!-- Consent Checkboxes -->
+                <div class="checkbox-group">
+                    <input type="checkbox" name="marketing" id="marketing">
+                    <label for="marketing">I consent to receive marketing communications.</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" name="privacy_policy" id="privacy" required>
+                    <label for="privacy">I have read and understood the privacy policy.</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">SUBMIT</button>
+            </div>
+            <!-- Web3Forms Hidden API Key -->
+            <input type="hidden" name="access_key" value="a9ae5b1d-116f-4f7f-92c0-f5dbb9ed1429">
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="service1.html">GIS Mapping</a>
+                <a href="service2.html">DMS Solutions</a>
+                <a href="service3.html">Statistical, Economical Servey and Study. Third Party Evolution of Schemes</a>
+                <a href="service4.html">IT Enabled Services</a>
+                <a href="service5.html">E-Governance</a>
+                <a href="service6.html">Training</a>
+            </div>
+            <div class="footer-column">
+                <h3>Projects</h3>
+                <a href="mapping.html">Assets Mapping Of 2D Building to 3D Building</a>
+                <a href="creation.html">Creation Of BaseMap With The Help Of Content Mapping</a>
+                <a href="asset.html">Asset & Component Mapping on Telecom Tower in 2D Drawing</a>
+                <a href="scanning.html">Scanning & Digitization of Cadastral Map Belongs to LRD</a>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <a href="AboutUs.html">Our Company</a>
+            </div>
+            <div class="footer-column">
+                <h3>Careers</h3>
+                <a href="careers.html">Join The Team</a><br />
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/simak-it-private-limited/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Simak IT Technologies Pvt. Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeBtn = document.getElementById('closeMobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            overlay.classList.remove('hidden');
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        };
+
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Toggle services section
+        document.getElementById('servicesToggle').addEventListener('click', function() {
+            const dropdown = document.getElementById('servicesDropdown');
+            const icon = document.getElementById('servicesIcon');
+            dropdown.classList.toggle('hidden');
+            icon.classList.toggle('rotate-90');
+        });
+
+        // Toggle projects section
+        document.getElementById('projectsToggle').addEventListener('click', function() {
+            const dropdown = document.getElementById('projectsDropdown');
+            const icon = document.getElementById('projectsIcon');
+            dropdown.classList.toggle('hidden');
+            icon.classList.toggle('rotate-90');
+        });
+
+        // Search functionality
+        const searchToggle = document.getElementById('searchToggle');
+        const searchBox = document.getElementById('searchBox');
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        const data = [
+            { title: 'Home', url: 'index.htm' },
+            { title: 'GIS Mapping', url: 'service1.html' },
+            { title: 'DMS Solutions', url: 'service2.html' },
+            { title: 'Statistical Study', url: 'service3.html' },
+            { title: 'IT Services', url: 'service4.html' },
+            { title: 'E-Governance', url: 'service5.html' },
+            { title: 'Training', url: 'service6.html' },
+            { title: '2D to 3D Mapping', url: 'mapping.html' },
+            { title: 'BaseMap Creation', url: 'creation.html' },
+            { title: 'Asset Mapping', url: 'asset.html' },
+            { title: 'Map Digitization', url: 'scanning.html' },
+            { title: 'About Us', url: 'AboutUs.html' },
+            { title: 'Careers', url: 'careers.html' },
+            { title: 'Contact', url: 'contact.html' },
+        ];
+
+        searchToggle.addEventListener('click', () => {
+            searchBox.classList.toggle('hidden');
+            searchInput.focus();
+        });
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            const filtered = data.filter(item => item.title.toLowerCase().includes(query));
+            searchResults.innerHTML = '';
+
+            if (query.length === 0) return;
+
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${item.url}" class="block px-4 py-2 hover:bg-gray-100">${item.title}</a>`;
+                    searchResults.appendChild(li);
+                });
+            } else {
+                searchResults.innerHTML = '<li class="px-4 py-2 text-gray-500">No results found</li>';
+            }
+        });
+
+        // File upload display
+        document.getElementById('resume').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+            document.getElementById('fileName').textContent = fileName;
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchBox.contains(event.target) && !searchToggle.contains(event.target)) {
+                searchBox.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
